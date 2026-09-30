@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For Livpia ❤️</title>
+
+<style>
+
+/* ==============================
+   DASAR
+================================ */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 35%,
+            #4b1025 0%,
+            #260711 45%,
+            #090107 100%
+        );
+
+    color: white;
+    font-family: Georgia, serif;
+}
+
+
+/* ==============================
+   CAHAYA DI BELAKANG BUNGA
+================================ */
+
+.glow {
+    position: fixed;
+
+    width: 330px;
+    height: 330px;
+
+    left: 50%;
+    top: 36%;
+
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background: rgba(255, 57, 105, 0.22);
+
+    filter: blur(60px);
+
+    animation: glowPulse 4s ease-in-out infinite;
+
+    pointer-events: none;
+}
+
+@keyframes glowPulse {
+
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(.85);
+        opacity: .55;
+    }
+
+    50% {
+        transform: translate(-50%, -50%) scale(1.15);
+        opacity: .95;
+    }
+}
+
+
+/* ==============================
+   HALAMAN UTAMA
+================================ */
+
+.page {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    position: relative;
+
+    padding-top: 35px;
+}
+
+
+/* ==============================
+   BUNGA
+================================ */
+
+.flower-area {
+
+    position: relative;
+
+    width: 280px;
+    height: 440px;
+
+    display: flex;
+
+    justify-content: center;
+}
+
+
+/* batang */
+
+.stem {
+
+    position: absolute;
+
+    top: 190px;
+
+    left: 50%;
+
+    width: 8px;
+    height: 220px;
+
+    transform: translateX(-50%) scaleY(0);
+
+    transform-origin: top;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            to right,
+            #123d17,
+            #4d9d4f,
+            #1b531f
+        );
+
+    animation:
+        growStem 2s ease forwards;
+
+    animation-delay: .5s;
+
+    z-index: 1;
+}
+
+@keyframes growStem {
+
+    to {
+        transform:
+            translateX(-50%)
+            scaleY(1);
+    }
+}
+
+
+/* ==============================
+   DAUN
+================================ */
+
+.leaf {
+
+    position: absolute;
+
+    width: 75px;
+    height: 38px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #6bb66a,
+            #1b5a22
+        );
+
+    border-radius:
+        100% 0 100% 0;
+
+    opacity: 0;
+
+    z-index: 2;
+}
+
+.leaf-left {
+
+    top: 310px;
+    left: 55px;
+
+    transform:
+        rotate(-30deg)
+        scale(0);
+
+    animation:
+        leafAppear 1s ease forwards;
+
+    animation-delay: 2.1s;
+}
+
+.leaf-right {
+
+    top: 350px;
+    right: 55px;
+
+    transform:
+        rotate(145deg)
+        scale(0);
+
+    animation:
+        leafAppear 1s ease forwards;
+
+    animation-delay: 2.4s;
+}
+
+@keyframes leafAppear {
+
+    to {
+        opacity: 1;
+        transform:
+            rotate(-30deg)
+            scale(1);
+    }
+}
+
+
+/* ==============================
+   ROSE
+================================ */
+
+.rose {
+
+    position: absolute;
+
+    top: 15px;
+
+    left: 50%;
+
+    width: 230px;
+    height: 230px;
+
+    transform:
+        translateX(-50%)
+        scale(.08);
+
+    animation:
+        roseBloom 4.5s
+        cubic-bezier(.2,.8,.2,1)
+        forwards;
+
+    z-index: 10;
+}
+
+@keyframes roseBloom {
+
+    0% {
+        transform:
+            translateX(-50%)
+            scale(.08)
+            rotate(-8deg);
+    }
+
+    40% {
+        transform:
+            translateX(-50%)
+            scale(.55)
+            rotate(4deg);
+    }
+
+    70% {
+        transform:
+            translateX(-50%)
+            scale(1.08)
+            rotate(-2deg);
+    }
+
+    85% {
+        transform:
+            translateX(-50%)
+            scale(.97)
+            rotate(1deg);
+    }
+
+    100% {
+        transform:
+            translateX(-50%)
+            scale(1)
+            rotate(0);
+    }
+}
+
+
+/* semua kelopak */
+
+.petal {
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 92px;
+    height: 125px;
+
+    transform-origin:
+        50% 90%;
+
+    border-radius:
+        70% 30% 70% 30%;
+
+    background:
+        radial-gradient(
+            circle at 35% 25%,
+            #ffb4c5 0%,
+            #f0446c 42%,
+            #a50d39 82%,
+            #68051f 100%
+        );
+
+    box-shadow:
+        inset
+        -9px
+        -14px
+        17px
+        rgba(65,0,22,.4);
+
+    margin-left: -46px;
+    margin-top: -105px;
+
+    transition:
+        transform 1s ease;
+}
+
+
+/* susunan kelopak luar */
+
+.petal:nth-child(1) {
+    transform:
+        rotate(0deg)
+        translateY(-38px);
+}
+
+.petal:nth-child(2) {
+    transform:
+        rotate(45deg)
+        translateY(-38px);
+}
+
+.petal:nth-child(3) {
+    transform:
+        rotate(90deg)
+        translateY(-38px);
+}
+
+.petal:nth-child(4) {
+    transform:
+        rotate(135deg)
+        translateY(-38px);
+}
+
+.petal:nth-child(5) {
+    transform:
+        rotate(180deg)
+        translateY(-38px);
+}
+
+.petal:nth-child(6) {
+    transform:
+        rotate(225deg)
+        translateY(-38px);
+}
+
+.petal:nth-child(7) {
+    transform:
+        rotate(270deg)
+        translateY(-38px);
+}
+
+.petal:nth-child(8) {
+    transform:
+        rotate(315deg)
+        translateY(-38px);
+}
+
+
+/* kelopak bagian dalam */
+
+.inner-rose {
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 115px;
+    height: 135px;
+
+    transform:
+        translate(-50%, -50%)
+        rotate(12deg);
+
+    border-radius:
+        65% 35% 60% 40%;
+
+    background:
+        radial-gradient(
+            circle at 35% 25%,
+            #ffb5c5,
+            #e63160 48%,
+            #89072d 100%
+        );
+
+    box-shadow:
+        inset
+        -10px
+        -13px
+        18px
+        rgba(70,0,25,.45);
+
+    z-index: 15;
+}
+
+
+/* kelopak tengah */
+
+.inner-rose::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 82px;
+    height: 108px;
+
+    left: 16px;
+    top: 10px;
+
+    border-radius:
+        60% 40% 60% 40%;
+
+    background:
+        radial-gradient(
+            circle at 35% 25%,
+            #ffbdca,
+            #d51d4e 60%,
+            #79062a
+        );
+
+    transform:
+        rotate(-20deg);
+}
+
+
+/* pusat mawar */
+
+.inner-rose::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 42px;
+    height: 70px;
+
+    left: 37px;
+    top: 28px;
+
+    border-radius:
+        70% 30% 65% 35%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff9db2,
+            #a30935
+        );
+
+    transform:
+        rotate(20deg);
+
+    box-shadow:
+        inset
+        -7px
+        -7px
+        10px
+        rgba(60,0,20,.35);
+}
+
+
+/* ==============================
+   NAMA
+================================ */
+
+.name {
+
+    position: absolute;
+
+    top: 122px;
+
+    width: 100%;
+
+    text-align: center;
+
+    z-index: 30;
+
+    font-size: 34px;
+
+    font-weight: bold;
+
+    color: #fff7fa;
+
+    text-shadow:
+        0 0 5px white,
+        0 0 15px #ff5d85,
+        0 0 30px #ff1f59;
+
+    opacity: 0;
+
+    animation:
+        nameAppear 1.8s ease forwards;
+
+    animation-delay: 4.2s;
+}
+
+@keyframes nameAppear {
+
+    from {
+        opacity: 0;
+        transform: scale(.5);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+/* ==============================
+   PESAN PAGI
+================================ */
+
+.message {
+
+    width: min(92%, 720px);
+
+    margin-top: -5px;
+
+    padding:
+        28px
+        24px
+        32px;
+
+    border-radius: 25px;
+
+    background:
+        rgba(255,255,255,.07);
+
+    border:
+        1px solid
+        rgba(255,180,200,.16);
+
+    backdrop-filter: blur(8px);
+
+    box-shadow:
+        0 15px 45px
+        rgba(0,0,0,.25);
+
+    opacity: 0;
+
+    animation:
+        messageAppear 1.5s ease forwards;
+
+    animation-delay: 5s;
+
+    position: relative;
+
+    z-index: 20;
+}
+
+.message h2 {
+
+    text-align: center;
+
+    font-size: 27px;
+
+    color: #ffd8e2;
+
+    margin-bottom: 18px;
+
+    text-shadow:
+        0 0 12px
+        rgba(255,100,140,.5);
+}
+
+.message p {
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size: 14px;
+
+    line-height: 1.9;
+
+    color: #f2dce2;
+
+    text-align: left;
+}
+
+.message p + p {
+    margin-top: 14px;
+}
+
+@keyframes messageAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ==============================
+   HATI MELAYANG
+================================ */
+
+.heart {
+
+    position: fixed;
+
+    bottom: -30px;
+
+    color: #ff6689;
+
+    font-size: 18px;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    z-index: 5;
+
+    animation:
+        heartFloat
+        linear
+        infinite;
+}
+
+.heart:nth-of-type(1) {
+    left: 12%;
+    animation-duration: 7s;
+    animation-delay: 1s;
+}
+
+.heart:nth-of-type(2) {
+    left: 30%;
+    animation-duration: 9s;
+    animation-delay: 3s;
+}
+
+.heart:nth-of-type(3) {
+    left: 70%;
+    animation-duration: 8s;
+    animation-delay: 2s;
+}
+
+.heart:nth-of-type(4) {
+    left: 88%;
+    animation-duration: 10s;
+    animation-delay: 4s;
+}
+
+@keyframes heartFloat {
+
+    0% {
+        transform:
+            translateY(0)
+            scale(.5)
+            rotate(0);
+
+        opacity: 0;
+    }
+
+    15% {
+        opacity: .8;
+    }
+
+    100% {
+        transform:
+            translateY(-110vh)
+            scale(1.3)
+            rotate(25deg);
+
+        opacity: 0;
+    }
+}
+
+
+/* ==============================
+   BINTANG / PARTIKEL
+================================ */
+
+.sparkle {
+
+    position: fixed;
+
+    width: 4px;
+    height: 4px;
+
+    border-radius: 50%;
+
+    background: #ffd9e3;
+
+    box-shadow:
+        0 0 8px #ff9db5;
+
+    opacity: .5;
+
+    animation:
+        sparkle 3s
+        ease-in-out
+        infinite;
+
+    pointer-events: none;
+}
+
+.s1 {
+    top: 15%;
+    left: 15%;
+}
+
+.s2 {
+    top: 25%;
+    right: 15%;
+    animation-delay: 1s;
+}
+
+.s3 {
+    top: 60%;
+    left: 8%;
+    animation-delay: 2s;
+}
+
+.s4 {
+    top: 65%;
+    right: 10%;
+    animation-delay: 1.5s;
+}
+
+@keyframes sparkle {
+
+    0%,100% {
+        opacity: .15;
+        transform: scale(.6);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.5);
+    }
+}
+
+
+/* ==============================
+   HP
+================================ */
+
+@media (max-width: 480px) {
+
+    .flower-area {
+        transform: scale(.84);
+        transform-origin: top center;
+        margin-bottom: -55px;
+    }
+
+    .message {
+        width: 92%;
+        padding: 23px 18px 27px;
+    }
+
+    .message h2 {
+        font-size: 23px;
+    }
+
+    .message p {
+        font-size: 13px;
+        line-height: 1.8;
+    }
+
+    .name {
+        font-size: 30px;
+    }
+}
+
+
+/* ==============================
+   HP KECIL
+================================ */
+
+@media (max-width: 360px) {
+
+    .flower-area {
+        transform: scale(.72);
+        margin-bottom: -95px;
+    }
+
+    .message {
+        width: 94%;
+    }
+
+    .message p {
+        font-size: 12px;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+<!-- cahaya -->
+<div class="glow"></div>
+
+
+<!-- partikel -->
+<div class="sparkle s1"></div>
+<div class="sparkle s2"></div>
+<div class="sparkle s3"></div>
+<div class="sparkle s4"></div>
+
+
+<div class="page">
+
+
+    <!-- ==========================
+         BUNGA
+    =========================== -->
+
+    <div class="flower-area">
+
+        <div class="rose">
+
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+
+            <div class="inner-rose"></div>
+
+        </div>
+
+
+        <!-- nama -->
+        <div class="name">
+            Livpia ❤️
+        </div>
+
+
+        <!-- batang -->
+        <div class="stem"></div>
+
+
+        <!-- daun -->
+        <div class="leaf leaf-left"></div>
+        <div class="leaf leaf-right"></div>
+
+    </div>
+
+
+
+    <!-- ==========================
+         PESAN PAGI
+    =========================== -->
+
+    <section class="message">
+
+        <h2>
+            Selamat pagi, sayangku! ☀️✨
+        </h2>
+
+        <p>
+            Semoga pagimu dibuka dengan senyuman dan udara segar
+            yang bikin hati adem. Bangunnya perlahan saja,
+            tidak usah terburu-buru. Tarik napas dalam-dalam,
+            rasakan hangatnya mentari pagi ini, dan ingat kalau
+            di sini ada aku yang selalu memikirkan kamu dan
+            mendoakan yang terbaik buat harimu.
+        </p>
+
+        <p>
+            Semoga semua urusan dan kegiatanmu hari ini berjalan
+            lancar, dimudahkan, dan dikelilingi oleh hal-hal baik
+            serta orang-orang yang bikin kamu nyaman. Tetap semangat,
+            jaga kesehatan, dan jangan lupa sarapan ya supaya energi
+            kamu penuh buat menjalani hari.
+        </p>
+
+        <p>
+            Kalau nanti di tengah hari kamu merasa lelah atau pusing,
+            ingat ya kalau kamu tidak sendirian. Aku selalu ada di sini,
+            siap jadi tempat kamu cerita, mengeluh, atau sekadar
+            melepas penat.
+        </p>
+
+        <p>
+            Selamat beraktivitas, sayang! ❤️
+            <br>
+            <strong>Have a wonderful and amazing day! 🌷</strong>
+        </p>
+
+    </section>
+
+
+</div>
+
+
+<!-- ==========================
+     HATI
+=========================== -->
+
+<div class="heart">♥</div>
+<div class="heart">♡</div>
+<div class="heart">♥</div>
+<div class="heart">♡</div>
+
+
+</body>
+</html>
